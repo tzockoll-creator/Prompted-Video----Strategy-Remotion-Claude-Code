@@ -1,73 +1,75 @@
-# React + TypeScript + Vite
+# Prompted Video — Strategy + Remotion + Claude Code
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A business intelligence dashboard paired with a programmatic video system, built with React, TypeScript, and Remotion. The interactive web app analyzes multi-branch financial performance across Texas regions, while Remotion renders a professional 90-second animated video — entirely from code, no video editor involved.
 
-Currently, two official plugins are available:
+## Video Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[![Watch the video](https://img.youtube.com/vi/qssE-EdGl4w/maxresdefault.jpg)](https://www.youtube.com/watch?v=qssE-EdGl4w)
 
-## React Compiler
+**[Watch on YouTube →](https://www.youtube.com/watch?v=qssE-EdGl4w)**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This video walks through all the apps we've been building in this project. Every frame of the video component — the animations, transitions, charts, particle effects, and typography — is generated entirely by code using [Remotion](https://www.remotion.dev/). No after-effects, no screen recordings, no manual editing. The video is a React component rendered to MP4.
 
-## Expanding the ESLint configuration
+## What's In the Project
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Interactive Web Dashboard
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Five pages of data visualization for a fictional multi-branch financial institution:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **Executive Overview** — KPI dashboard with profit trends, member growth, NPS scores, digital adoption
+- **Branch Comparison** — Side-by-side performance analysis with ranking across 4 Texas regions
+- **Geographic Map** — Interactive Leaflet map with branch locations colored by performance metrics
+- **Digital Transformation** — Digital adoption metrics, transaction channels, mobile app statistics
+- **What-If Analysis** — Scenario modeling with sliders for interest rates and growth projections
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Code-Generated Video (Remotion)
+
+A 90-second animated presentation (1920×1080, 30fps) composed of 5 scenes, all written as React components:
+
+1. **Opening** — Glow orb fade-in with typewriter text
+2. **Foundation** — Data flow particles with progressive messaging about semantic data layers
+3. **Data Products** — Dashboard visualization with animated KPI cards, charts, and a Texas branch network map
+4. **AI Orchestration** — Node graph showing a central hub connected to Claude, Gemini, and ChatGPT via MCP links with orbital animations
+5. **Closing** — Converging particles, logo reveal, and call to action
+
+Custom animation components include spring physics, particle systems, orbital node positioning, traveling dots along SVG paths, and frame-interpolated fades — all expressed as TypeScript.
+
+## Tech Stack
+
+- **React 19** + **TypeScript 5.9** + **Vite 7**
+- **Remotion 4** for programmatic video rendering
+- **Tailwind CSS 4** + **shadcn/ui** + **Radix UI**
+- **Recharts** for data visualization
+- **React Leaflet** for geographic mapping
+
+## Getting Started
+
+```bash
+npm install
+npm run dev          # Start the web dashboard
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Remotion Video
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+npm run remotion:studio   # Open Remotion Studio to preview the video
+npm run remotion:render   # Render to out/video.mp4
+```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Project Structure
+
+```
+src/
+├── pages/              # Dashboard route components
+├── components/         # UI components (shadcn, shared, layout, charts)
+├── remotion/
+│   ├── Root.tsx         # Composition registration
+│   ├── Video.tsx        # Main video component sequencing all scenes
+│   ├── scenes/          # 5 animated scene components
+│   ├── components/      # Animation primitives (particles, typewriter, node graph, etc.)
+│   └── lib/             # Timing constants, design tokens, sample data
+├── data/               # Branch performance JSON + coordinates
+├── context/            # Global filter state
+├── lib/                # Utilities, formatters, constants
+└── types/              # TypeScript interfaces
 ```
