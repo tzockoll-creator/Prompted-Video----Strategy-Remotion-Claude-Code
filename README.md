@@ -1,6 +1,6 @@
 # Prompted Video — Strategy + Remotion + Claude Code
 
-A business intelligence dashboard paired with a programmatic video system, built with React, TypeScript, and Remotion. The interactive web app analyzes multi-branch financial performance across Texas regions, while Remotion renders a professional 90-second animated video — entirely from code, no video editor involved.
+A fully Ai generated video via prompting that reviews some of the projects I've been working on.
 
 ## Video Overview
 
